@@ -10,13 +10,13 @@ function Home() {
   );
 
   useEffect(() => {
-    getCountries;
+    displayCountries;
   }, []);
 
-  const getCountries = async () => {
+  const displayCountries = async () => {
     const res = await fetch('https://restcountries.eu/rest/v2/all');
     const data = await res.json();
-    await setCountries(data);
+    setCountries(data);
   };
 
   const darkMode = () => {
