@@ -7,14 +7,14 @@ function Home() {
   const [mode, setMode] = useState(true);
   const [iconBtn,setIconBtn] = useState('<i class="far fa-sun"></i> Light Mode')
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    getCountries
+  }, []);
 
-  const getCountries = () => {
-    fetch("https://restcountries.com/v2/all").then(res =>
-      res.json().then(data => {
-        setCountries(data);
-      })
-    );
+  const getCountries = async() => {
+    const res = await fetch("https://restcountries.eu/v2/all")
+    const data = await res.json()
+    await setCountries(data)
   };
 
   const darkMode = ()=>{
